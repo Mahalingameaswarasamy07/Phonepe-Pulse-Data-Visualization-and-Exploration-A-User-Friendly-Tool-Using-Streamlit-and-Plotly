@@ -7,14 +7,17 @@ mysql-connector-python, Streamlit, and Plotly.
 * Install requirements
 
 # step-2:
+* Get Phonepe data and preprocess and store it in MySQL database
+
+# step-3:
 * Run the command "streamlit run file path"
 * --Example "streamlit run phonepe_pulse_data.py"
 
-# step-3:
+# step-4:
 * Phonepe pulse data visualization window will be opened in browser, voilà, done!!
 
 
-# step-4:
+# step-5:
 * Filter different option from dropdown values and below filtered data will rendered.
 ![image](https://github.com/Mahalingameaswarasamy07/Phonepe-Pulse-Data-Visualization-and-Exploration-A-User-Friendly-Tool-Using-Streamlit-and-Plotly/assets/123309711/2f74ae05-3e10-4aaf-9a5a-43e82aec70e8)
 ![image](https://github.com/Mahalingameaswarasamy07/Phonepe-Pulse-Data-Visualization-and-Exploration-A-User-Friendly-Tool-Using-Streamlit-and-Plotly/assets/123309711/4f127450-1752-4adb-96ac-695d8fbe0ad2)
