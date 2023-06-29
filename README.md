@@ -20,6 +20,7 @@ mysql-connector-python, Streamlit, and Plotly.
 # step-5:
 * Filter different option from dropdown values and below filtered data will rendered.
 
+# Images
 * Top states and districts
 ![image](https://github.com/Mahalingameaswarasamy07/Phonepe-Pulse-Data-Visualization-and-Exploration-A-User-Friendly-Tool-Using-Streamlit-and-Plotly/assets/123309711/2f74ae05-3e10-4aaf-9a5a-43e82aec70e8)
 
