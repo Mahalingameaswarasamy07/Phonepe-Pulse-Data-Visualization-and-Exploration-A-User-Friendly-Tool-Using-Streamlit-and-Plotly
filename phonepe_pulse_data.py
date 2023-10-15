@@ -8,8 +8,10 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 from git.repo.base import Repo
 
+icon = Image.open("phonepe.png")
 st.set_page_config(page_title= "Phonepe Pulse Data",
                    layout= "wide",
+                   page_icon= icon,
                    initial_sidebar_state= "expanded"
                    )
 
@@ -62,8 +64,11 @@ mydb = sql.connect(host="localhost",
                   )
 mycursor = mydb.cursor(buffered=True)
 
-
-st.markdown("<h1 style='text-align: center;'>Phonepe Pulse Data</h1>", unsafe_allow_html=True) 
+col10,col11=st.columns([1,30],gap="small")
+with col10:
+    st.image('phonepe.png',width=75)
+with col11:
+    st.markdown("<h1 style='text-align: center;'>Phonepe Pulse Data</h1>", unsafe_allow_html=True) 
      
 chart_select=st.selectbox("More info : ",
                           ('Top states and districts',
@@ -125,7 +130,7 @@ if chart_select=='Transaction amount on PAN-India':
     st.markdown("## :violet[Total Transaction Amount on PAN-India]")
     mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_transaction where year = {Year} and quarter = {Quarter} group by state order by state")
     df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
-    df2 = pd.read_csv("E:/Guvi-MDS\DT5/capstone_projects/Phonepe_Pulse_Data_Visualization/Data/Statenames.csv")
+    df2 = pd.read_csv("E:\Guvi-MDS\DT5\capstone_projects\Phonepe-Pulse-Data-Visualization-and-Exploration-A-User-Friendly-Tool-Using-Streamlit-and-Plotly\Statenames.csv")
     df1.State = df2
 
     fig = px.choropleth(df1,geojson="https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson",
@@ -147,7 +152,7 @@ if chart_select=='Transaction count on PAN-India':
     st.markdown("## :violet[Total Transaction Count on PAN-India]")
     mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_transaction where year = {Year} and quarter = {Quarter} group by state order by state")
     df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
-    df2 = pd.read_csv("E:/Guvi-MDS\DT5/capstone_projects/Phonepe_Pulse_Data_Visualization/Data/Statenames.csv")
+    df2 = pd.read_csv("E:\Guvi-MDS\DT5\capstone_projects\Phonepe-Pulse-Data-Visualization-and-Exploration-A-User-Friendly-Tool-Using-Streamlit-and-Plotly\Statenames.csv")
     df1.Total_Transactions = df1.Total_Transactions.astype(int)
     df1.State = df2
 
